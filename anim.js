@@ -16,7 +16,7 @@ let frames = {
   punch: [1, 2, 3, 4, 5, 6, 7],
   backward: [1, 2, 3, 4, 5, 6],
   forward: [1, 2, 3, 4, 5, 6],
-  punch2: [1, 2, 3, 4, 5, 6, 7],
+  block: [1, 2, 3, 4, 5, 6, 7],
 };
 
 let loadImages = (callback2) => {
@@ -24,14 +24,13 @@ let loadImages = (callback2) => {
     idle: [],
     kick: [],
     punch: [],
-    block: [],
     backward: [],
     forward: [],
-    punch2: [],
+    block: [],
   };
   imagesToLoad = 0;
 
-  ["idle", "kick", "punch", "block", "backward", "forward", "punch2"].forEach(
+  ["idle", "kick", "punch", "backward", "forward", "block"].forEach(
     (animation) => {
       let animationFrames = frames[animation];
       imagesToLoad += animationFrames.length;
@@ -54,7 +53,7 @@ let animate = (ctx, images, animation, callback3) => {
       ctx.clearRect(0, 0, 500, 500);
       let fn2 = index % 7;
       //if (fn2 > 6) fn2 = 0;
-      ctx.drawImage(images.punch2[fn2], 100, 0, 475, 500);
+      ctx.drawImage(images.punch[fn2], 100, 0, 475, 500);
 
       ctx.drawImage(image, 0, 0, 375, 500);
     }, index * 100)
