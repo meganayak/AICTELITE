@@ -12,8 +12,6 @@ class Todo < ActiveRecord::Base
   end
 
   def self.overdue
-    #Notice that self.overdue is a class method because of the self. prefix.
-    #Those methods are not available in individual objects of the class, but on the entire class itself.
     where("due_date < ?", Date.today)
   end
 
@@ -39,9 +37,9 @@ class Todo < ActiveRecord::Base
   end
 
   def self.mark_as_complete(id)
-    to_mark = Todo.find(id)  # To fetch the id of the given task from database.
+    to_mark = Todo.find(id) 
     to_mark.completed = true
-    to_mark.save # To commit the changes in the database.
+    to_mark.save 
     to_mark
   end
 end
